@@ -9,6 +9,7 @@ from django.contrib.auth.forms import AuthenticationForm #add this
 from django.contrib.auth import login, authenticate, logout #add this
 from django.views import View
 from .models import *
+from django.contrib.auth.decorators import login_required
 
 
 def logout_request(request):
@@ -67,6 +68,7 @@ def car(request):
 	vehicules = Vehicule.objects.all()
 	return render(request, 'car.html', context={"vehicules": vehicules})
 
+
 class Reservation(View):
 
 
@@ -74,7 +76,8 @@ class Reservation(View):
 
 		return render(request,'reservation.html' ,context={"id":id})
 		pass 
-
+	
+	@login_required(login_url='/login')
 	def post(self, request, id=0):
 		
 		print(request.POST)
