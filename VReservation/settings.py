@@ -132,20 +132,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DATETIME_FORMAT="%Y-%m-%d%H:%M:%S"
-
-
-DJRICHTEXTFIELD_CONFIG = {
-    'js': ['//cdn.ckeditor.com/4.14.0/standard/ckeditor.js'],
-    'init_template': 'djrichtextfield/init/tinymce.js',
-    'settings': {
-        'menubar': True,
-        'plugins': 'link image',
-        'toolbar': 'bold italic | link image | removeformat',
-        'width': 700
-    },
-    'css': {
-        'all': [
-            'https://cdn.example.com/css/editor.css'
-        ]
-    }
-}
