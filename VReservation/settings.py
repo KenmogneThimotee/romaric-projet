@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '36j)t+x-1@gz#wi8brv-6mxse0bvr$-rw99q5e@$gc(9&ndpm&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'vehicule',
-    'crispy_forms'
+    'projet',
+    'crispy_forms',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,20 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DATETIME_FORMAT="%Y-%m-%d%H:%M:%S"
+
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.ckeditor.com/4.14.0/standard/ckeditor.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': True,
+        'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat',
+        'width': 700
+    },
+    'css': {
+        'all': [
+            'https://cdn.example.com/css/editor.css'
+        ]
+    }
+}
