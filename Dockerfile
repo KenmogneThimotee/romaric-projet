@@ -15,6 +15,7 @@ RUN set -ex && \
     pip install --upgrade pip && \
     pip install -r /tmp/requirements.txt && \
     rm -rf /root/.cache/
+RUN python -m pip install Pillow
 
 COPY . /code/
 
