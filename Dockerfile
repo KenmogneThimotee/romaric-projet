@@ -1,4 +1,5 @@
 ARG PYTHON_VERSION=3.10-slim-buster
+ARG PORT
 
 FROM python:${PYTHON_VERSION}
 
@@ -20,7 +21,7 @@ COPY . /code/
 
 RUN python manage.py collectstatic --noinput
 
-EXPOSE 8080
+EXPOSE $PORT
 
 # replace demo.wsgi with <project_name>.wsgi
-CMD ["gunicorn", "--bind", ":8080", "--workers", "2", "VReservation.wsgi"]
+CMD ["gunicorn", "--bind", ":$PORT", "--workers", "2", "VReservation.wsgi"]
