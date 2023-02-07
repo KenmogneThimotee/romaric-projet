@@ -21,7 +21,7 @@ COPY . /code/
 
 RUN python manage.py makemigrations projet
 RUN python manage.py migrate
-#RUN python manage.py collectstatic
+RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
