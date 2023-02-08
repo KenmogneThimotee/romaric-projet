@@ -22,6 +22,7 @@ RUN set -ex && \
     pip install -r /tmp/requirements.txt && \
     rm -rf /root/.cache/
 RUN python -m pip install Pillow
+RUN python -m pip install django-cors-headers
 
 COPY . /code/
 
