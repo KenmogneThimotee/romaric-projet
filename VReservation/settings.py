@@ -35,7 +35,7 @@ CORS_ALLOW_METHODS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.up.railway.app,
+    'https://*.up.railway.app',
     'https://*.127.0.0.1'
 ]
 
