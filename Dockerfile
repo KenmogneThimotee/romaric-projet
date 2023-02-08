@@ -26,4 +26,5 @@ RUN python manage.py collectstatic --noinput
 EXPOSE 8000
 
 # replace demo.wsgi with <project_name>.wsgi
-CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "VReservation.wsgi"]
+# CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "VReservation.wsgi"]
+CMD ["python", "manage.py", "runserver"]
