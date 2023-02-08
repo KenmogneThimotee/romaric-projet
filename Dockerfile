@@ -9,6 +9,7 @@ FROM python:${PYTHON_VERSION}
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV DJANGO_SUPERUSER_PASSWORD=/Xandercage3
 
 RUN mkdir -p /code
 
@@ -27,8 +28,8 @@ COPY . /code/
 RUN python manage.py makemigrations projet
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
-RUN echo "varible $DJANGO_SUPERUSER_USERNAME"
-RUN python manage.py createsuperuser --noinput --username romaric --email romaric@gmail.com --password /Xandercage3
+RUN echo "variable $DJANGO_SUPERUSER_PASSWORD"
+RUN python manage.py createsuperuser --noinput --username romaric --email romaric@gmail.com
 
 EXPOSE 8000
 
