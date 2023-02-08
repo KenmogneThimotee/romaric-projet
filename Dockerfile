@@ -1,6 +1,6 @@
-ARG DJANGO_SUPERUSER_USERNAME
-ARG DJANGO_SUPERUSER_EMAIL
-ARG DJANGO_SUPERUSER_PASSWORD
+ARG DJANGO_SUPERUSER_USERNAME=romaric
+ARG DJANGO_SUPERUSER_EMAIL=romaric@gmail.com
+ARG DJANGO_SUPERUSER_PASSWORD=/Xandercage3
 ARG PYTHON_VERSION=3.10-slim-buster
 
 
@@ -27,7 +27,7 @@ COPY . /code/
 RUN python manage.py makemigrations projet
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
-RUN echo ${DJANGO_SUPERUSER_USERNAME}
+RUN echo $DJANGO_SUPERUSER_USERNAME
 RUN python manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL --password $DJANGO_SUPERUSER_PASSWORD
 
 EXPOSE 8000
