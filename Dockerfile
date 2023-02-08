@@ -1,4 +1,7 @@
 ARG PYTHON_VERSION=3.10-slim-buster
+ARG DJANGO_SUPERUSER_USERNAME
+ARG DJANGO_SUPERUSER_EMAIL
+ARG DJANGO_SUPERUSER_PASSWORD
 
 FROM python:${PYTHON_VERSION}
 
@@ -22,6 +25,7 @@ COPY . /code/
 RUN python manage.py makemigrations projet
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
+RUN python manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL --password $DJANGO_SUPERUSER_PASSWORD
 
 EXPOSE 8000
 
